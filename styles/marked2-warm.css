@@ -69,7 +69,7 @@
   --spacing-list-item: 0.6em;
   
   /* Content Width */
-  --content-max-width: 42em; /* ~75-80 characters */
+  --content-max-width: 56em; /* Wider for diagrams and tables */
   --content-padding: 2.5em;
   
   /* Border Radius - More rounded for warmth */
