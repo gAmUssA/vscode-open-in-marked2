@@ -447,6 +447,41 @@ ol {
   list-style-type: decimal;
 }
 
+/* Task Lists (GitHub-style checkboxes) */
+ul li input[type="checkbox"] {
+  margin-right: 0.5em;
+  margin-left: -0.1em;
+  transform: scale(1.15);
+  accent-color: var(--color-accent);
+}
+
+/* Hide custom bullet for task list items */
+ul li:has(input[type="checkbox"])::before {
+  display: none;
+}
+
+/* Completed tasks - strikethrough */
+ul li input[type="checkbox"]:checked + span,
+ul li input[type="checkbox"]:checked ~ *,
+ul li.task-list-item.checked,
+ul li.task-list-item:has(input:checked) {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+/* Fallback for Marked 2 rendering: target the whole li if checkbox is checked */
+ul li:has(input[type="checkbox"]:checked) {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+/* Uncompleted tasks - normal styling with subtle emphasis */
+ul li input[type="checkbox"]:not(:checked) + span,
+ul li input[type="checkbox"]:not(:checked) ~ * {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
 /* Definition Lists */
 dl {
   margin: 0 0 var(--spacing-paragraph) 0;
