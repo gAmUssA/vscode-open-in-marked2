@@ -1,0 +1,605 @@
+/*
+ * ============================================================================
+ * MARKED 2 CUSTOM STYLE: EDITORIAL / MAGAZINE
+ * ============================================================================
+ * 
+ * A refined, elegant typography style with serif headings optimized for:
+ * - Comfortable reading of technical documentation
+ * - Presentation mode for conference talks
+ * 
+ * Target: 16" MacBook Pro (3456 × 2234)
+ * 
+ * FONT INSTALLATION:
+ * This theme uses system fonts by default, but for the best experience:
+ * 
+ * 1. Headings: Playfair Display (Google Fonts)
+ *    - Download: https://fonts.google.com/specimen/Playfair+Display
+ *    - Install the variable font or Regular/Bold weights
+ * 
+ * 2. Body: Source Serif Pro (Google Fonts) or system Georgia
+ *    - Download: https://fonts.google.com/specimen/Source+Serif+Pro
+ *    - Install Regular, Italic, and SemiBold weights
+ * 
+ * 3. Code: JetBrains Mono (supports ligatures)
+ *    - Download: https://www.jetbrains.com/lp/mono/
+ *    - Install Regular weight
+ * 
+ * To install fonts on macOS:
+ * - Double-click the .ttf/.otf file and click "Install Font"
+ * - Or drag fonts to Font Book.app
+ * 
+ * ============================================================================
+ */
+
+/* ============================================================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   ============================================================================ */
+
+:root {
+  /* Typography */
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --font-code: "JetBrains Mono", "SF Mono", "Fira Code", Menlo, Monaco, monospace;
+  
+  /* Font Sizes - Optimized for 16" MacBook at ~60cm */
+  --font-size-base: 19px;
+  --font-size-code: 16px;
+  --font-size-small: 0.875em;
+  
+  /* Heading Scale */
+  --font-size-h1: 2.75em;
+  --font-size-h2: 2em;
+  --font-size-h3: 1.5em;
+  --font-size-h4: 1.25em;
+  --font-size-h5: 1.1em;
+  --font-size-h6: 1em;
+  
+  /* Line Heights */
+  --line-height-body: 1.7;
+  --line-height-heading: 1.2;
+  --line-height-code: 1.5;
+  
+  /* Spacing */
+  --spacing-paragraph: 1.5em;
+  --spacing-heading-top: 2.5em;
+  --spacing-heading-bottom: 0.75em;
+  --spacing-list-item: 0.6em;
+  
+  /* Content Width */
+  --content-max-width: 42em; /* ~75-80 characters */
+  --content-padding: 2em;
+  
+  /* Border Radius */
+  --radius-small: 4px;
+  --radius-medium: 6px;
+  
+  /* Light Mode Colors */
+  --color-bg: #faf8f5;
+  --color-bg-alt: #f0ede8;
+  --color-text: #2d2d2d;
+  --color-text-muted: #5a5a5a;
+  --color-heading: #1a1a1a;
+  --color-accent: #8b4049;
+  --color-accent-hover: #a34d58;
+  --color-link: #8b4049;
+  --color-link-visited: #6b3039;
+  --color-code-bg: #f5f2ed;
+  --color-code-text: #2d2d2d;
+  --color-border: #d4cfc7;
+  --color-blockquote-border: #8b4049;
+  --color-blockquote-bg: transparent;
+  --color-table-header-bg: #f0ede8;
+  --color-table-alt-row: #faf8f5;
+  --color-hr: #d4cfc7;
+  --color-shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================================
+   DARK MODE (prefers-color-scheme)
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1e1e1e;
+    --color-bg-alt: #252525;
+    --color-text: #e0e0e0;
+    --color-text-muted: #a0a0a0;
+    --color-heading: #f0f0f0;
+    --color-accent: #d4838c;
+    --color-accent-hover: #e09aa3;
+    --color-link: #d4838c;
+    --color-link-visited: #b8727a;
+    --color-code-bg: #2a2a2a;
+    --color-code-text: #e0e0e0;
+    --color-border: #3a3a3a;
+    --color-blockquote-border: #d4838c;
+    --color-blockquote-bg: transparent;
+    --color-table-header-bg: #2a2a2a;
+    --color-table-alt-row: #232323;
+    --color-hr: #3a3a3a;
+    --color-shadow: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ============================================================================
+   MARKED 2 INVERTED MODE (Dark Mode via Marked preferences)
+   ============================================================================ */
+
+@media screen {
+  .inverted,
+  .inverted #wrapper {
+    --color-bg: #1e1e1e;
+    --color-bg-alt: #252525;
+    --color-text: #e0e0e0;
+    --color-text-muted: #a0a0a0;
+    --color-heading: #f0f0f0;
+    --color-accent: #d4838c;
+    --color-accent-hover: #e09aa3;
+    --color-link: #d4838c;
+    --color-link-visited: #b8727a;
+    --color-code-bg: #2a2a2a;
+    --color-code-text: #e0e0e0;
+    --color-border: #3a3a3a;
+    --color-blockquote-border: #d4838c;
+    --color-table-header-bg: #2a2a2a;
+    --color-table-alt-row: #232323;
+    --color-hr: #3a3a3a;
+    background: var(--color-bg) !important;
+  }
+  
+  .inverted p,
+  .inverted td,
+  .inverted li,
+  .inverted h1,
+  .inverted h2,
+  .inverted h3,
+  .inverted h4,
+  .inverted h5,
+  .inverted h6,
+  .inverted pre,
+  .inverted code,
+  .inverted th,
+  .inverted blockquote {
+    color: var(--color-text) !important;
+  }
+  
+  .inverted a {
+    color: var(--color-link) !important;
+  }
+  
+  .inverted pre,
+  .inverted code {
+    background: var(--color-code-bg) !important;
+  }
+}
+
+/* ============================================================================
+   BASE STYLES
+   ============================================================================ */
+
+html {
+  font-size: var(--font-size-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--content-padding);
+  background: transparent;
+}
+
+/* ============================================================================
+   HEADINGS
+   ============================================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+  color: var(--color-heading);
+  margin-top: var(--spacing-heading-top);
+  margin-bottom: var(--spacing-heading-bottom);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid var(--color-accent);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  padding-bottom: 0.2em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  color: var(--color-accent);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+  font-style: italic;
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+h6 {
+  font-size: var(--font-size-h6);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+/* First heading after document start */
+#wrapper > h1:first-child {
+  margin-top: 0;
+}
+
+/* ============================================================================
+   PARAGRAPHS & TEXT
+   ============================================================================ */
+
+p {
+  margin: 0 0 var(--spacing-paragraph) 0;
+}
+
+strong, b {
+  font-weight: 700;
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+/* ============================================================================
+   LINKS
+   ============================================================================ */
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+a:visited {
+  color: var(--color-link-visited);
+}
+
+/* ============================================================================
+   CODE
+   ============================================================================ */
+
+code {
+  font-family: var(--font-code);
+  font-size: 0.9em;
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-small);
+  font-variant-ligatures: common-ligatures;
+}
+
+pre {
+  font-family: var(--font-code);
+  font-size: var(--font-size-code);
+  line-height: var(--line-height-code);
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: 1.25em;
+  border-radius: var(--radius-medium);
+  overflow-x: auto;
+  margin: var(--spacing-paragraph) 0;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+pre code {
+  font-size: inherit;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+}
+
+/* ============================================================================
+   BLOCKQUOTES
+   ============================================================================ */
+
+blockquote {
+  margin: var(--spacing-paragraph) 0;
+  padding: 0.75em 1.5em;
+  border-left: 4px solid var(--color-blockquote-border);
+  background-color: var(--color-blockquote-bg);
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+blockquote p {
+  margin-bottom: 0.5em;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 0.5em;
+  font-size: var(--font-size-small);
+  font-style: normal;
+  color: var(--color-text-muted);
+}
+
+blockquote cite::before {
+  content: "— ";
+}
+
+/* ============================================================================
+   LISTS
+   ============================================================================ */
+
+ul, ol {
+  margin: 0 0 var(--spacing-paragraph) 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin-bottom: var(--spacing-list-item);
+  line-height: var(--line-height-body);
+}
+
+li > ul,
+li > ol {
+  margin-top: var(--spacing-list-item);
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ul ul {
+  list-style-type: circle;
+}
+
+ul ul ul {
+  list-style-type: square;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+/* Definition Lists */
+dl {
+  margin: 0 0 var(--spacing-paragraph) 0;
+}
+
+dt {
+  font-weight: 700;
+  margin-top: 1em;
+}
+
+dd {
+  margin-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* ============================================================================
+   TABLES
+   ============================================================================ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-paragraph) 0;
+  font-size: 0.95em;
+}
+
+th, td {
+  padding: 0.75em 1em;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-weight: 700;
+  background-color: var(--color-table-header-bg);
+  font-family: var(--font-heading);
+}
+
+tr:nth-child(even) {
+  background-color: var(--color-table-alt-row);
+}
+
+/* ============================================================================
+   HORIZONTAL RULES
+   ============================================================================ */
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--color-hr);
+  margin: 3em 0;
+  position: relative;
+}
+
+/* Decorative center element for presentation slide breaks */
+hr::after {
+  content: "§";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-bg);
+  padding: 0 1em;
+  color: var(--color-text-muted);
+  font-family: var(--font-heading);
+  font-size: 1.2em;
+}
+
+/* ============================================================================
+   IMAGES
+   ============================================================================ */
+
+#wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-medium);
+  box-shadow: 0 4px 16px var(--color-shadow);
+  margin: var(--spacing-paragraph) 0;
+}
+
+figure {
+  margin: var(--spacing-paragraph) 0;
+}
+
+figcaption {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 0.75em;
+  font-style: italic;
+}
+
+/* ============================================================================
+   FOOTNOTES
+   ============================================================================ */
+
+sup, sub, a.footnote {
+  font-size: 1.4ex;
+  height: 0;
+  line-height: 1;
+  vertical-align: super;
+  position: relative;
+}
+
+a.footnote {
+  color: var(--color-accent);
+  text-decoration: none;
+  padding: 0 0.2em;
+}
+
+div.footnotes {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-small);
+}
+
+.footnotes p {
+  display: inline;
+}
+
+/* ============================================================================
+   POETRY MODE (Marked 2 specific)
+   ============================================================================ */
+
+.poetry pre code {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 110% !important;
+  line-height: 1.6em;
+  display: block;
+  margin-left: 1em;
+}
+
+/* ============================================================================
+   PRINT STYLES
+   ============================================================================ */
+
+@media print {
+  :root {
+    --color-bg: #ffffff;
+    --color-text: #000000;
+    --color-heading: #000000;
+    --color-code-bg: #f5f5f5;
+    --font-size-base: 12pt;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  #wrapper {
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  pre, blockquote, table, figure {
+    page-break-inside: avoid;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  hr::after {
+    display: none;
+  }
+  
+  #wrapper img {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================================================ */
+
+@media screen and (max-width: 768px) {
+  :root {
+    --font-size-base: 17px;
+    --font-size-h1: 2.25em;
+    --font-size-h2: 1.75em;
+    --content-padding: 1.25em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --font-size-base: 16px;
+    --font-size-h1: 2em;
+    --font-size-h2: 1.5em;
+    --content-padding: 1em;
+  }
+}

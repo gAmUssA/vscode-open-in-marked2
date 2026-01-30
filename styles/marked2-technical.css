@@ -1,0 +1,667 @@
+/*
+ * ============================================================================
+ * MARKED 2 CUSTOM STYLE: TECHNICAL / MODERN
+ * ============================================================================
+ * 
+ * A clean, geometric sans-serif style with strong visual hierarchy optimized for:
+ * - Comfortable reading of technical documentation
+ * - Presentation mode for conference talks
+ * 
+ * Target: 16" MacBook Pro (3456 × 2234)
+ * 
+ * FONT INSTALLATION:
+ * This theme uses system fonts by default, but for the best experience:
+ * 
+ * 1. Headings & Body: Inter (Google Fonts)
+ *    - Download: https://fonts.google.com/specimen/Inter
+ *    - Install the variable font or Regular/Medium/Bold weights
+ *    - Excellent for technical content with tabular numbers
+ * 
+ * 2. Code: Fira Code (supports ligatures)
+ *    - Download: https://github.com/tonsky/FiraCode
+ *    - Install Regular and Medium weights
+ *    - Enable ligatures for -> => !== etc.
+ * 
+ * Alternative system fonts used as fallbacks:
+ * - SF Pro (macOS system font)
+ * - SF Mono (macOS system monospace)
+ * 
+ * To install fonts on macOS:
+ * - Double-click the .ttf/.otf file and click "Install Font"
+ * - Or drag fonts to Font Book.app
+ * 
+ * ============================================================================
+ */
+
+/* ============================================================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   ============================================================================ */
+
+:root {
+  /* Typography */
+  --font-heading: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  --font-code: "Fira Code", "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Monaco, monospace;
+  
+  /* Font Sizes - Optimized for 16" MacBook at ~60cm */
+  --font-size-base: 18px;
+  --font-size-code: 16px;
+  --font-size-small: 0.875em;
+  
+  /* Heading Scale - Geometric progression */
+  --font-size-h1: 2.75em;
+  --font-size-h2: 2em;
+  --font-size-h3: 1.5em;
+  --font-size-h4: 1.25em;
+  --font-size-h5: 1.1em;
+  --font-size-h6: 1em;
+  
+  /* Line Heights */
+  --line-height-body: 1.65;
+  --line-height-heading: 1.25;
+  --line-height-code: 1.5;
+  
+  /* Spacing */
+  --spacing-paragraph: 1.5em;
+  --spacing-heading-top: 2.5em;
+  --spacing-heading-bottom: 0.75em;
+  --spacing-list-item: 0.5em;
+  
+  /* Content Width */
+  --content-max-width: 44em; /* ~75-80 characters */
+  --content-padding: 2.5em;
+  
+  /* Border Radius */
+  --radius-small: 4px;
+  --radius-medium: 8px;
+  
+  /* Light Mode Colors - Clean, high contrast */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --color-text: #1a1a2e;
+  --color-text-muted: #6c757d;
+  --color-heading: #0f0f1a;
+  --color-accent: #0066cc;
+  --color-accent-hover: #0052a3;
+  --color-link: #0066cc;
+  --color-link-visited: #5c4d9a;
+  --color-code-bg: #f4f6f8;
+  --color-code-text: #1a1a2e;
+  --color-code-border: #e1e4e8;
+  --color-border: #e1e4e8;
+  --color-blockquote-border: #0066cc;
+  --color-blockquote-bg: #f8f9fa;
+  --color-table-header-bg: #f4f6f8;
+  --color-table-alt-row: #fafbfc;
+  --color-hr: #e1e4e8;
+  --color-shadow: rgba(0, 0, 0, 0.06);
+  
+  /* Accent colors for headings */
+  --color-h1-accent: #0066cc;
+  --color-h3-marker: #0066cc;
+}
+
+/* ============================================================================
+   DARK MODE (prefers-color-scheme)
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0d1117;
+    --color-bg-alt: #161b22;
+    --color-text: #e6edf3;
+    --color-text-muted: #8b949e;
+    --color-heading: #f0f6fc;
+    --color-accent: #58a6ff;
+    --color-accent-hover: #79b8ff;
+    --color-link: #58a6ff;
+    --color-link-visited: #a371f7;
+    --color-code-bg: #161b22;
+    --color-code-text: #e6edf3;
+    --color-code-border: #30363d;
+    --color-border: #30363d;
+    --color-blockquote-border: #58a6ff;
+    --color-blockquote-bg: #161b22;
+    --color-table-header-bg: #161b22;
+    --color-table-alt-row: #0d1117;
+    --color-hr: #30363d;
+    --color-shadow: rgba(0, 0, 0, 0.4);
+    --color-h1-accent: #58a6ff;
+    --color-h3-marker: #58a6ff;
+  }
+}
+
+/* ============================================================================
+   MARKED 2 INVERTED MODE (Dark Mode via Marked preferences)
+   ============================================================================ */
+
+@media screen {
+  .inverted,
+  .inverted #wrapper {
+    --color-bg: #0d1117;
+    --color-bg-alt: #161b22;
+    --color-text: #e6edf3;
+    --color-text-muted: #8b949e;
+    --color-heading: #f0f6fc;
+    --color-accent: #58a6ff;
+    --color-accent-hover: #79b8ff;
+    --color-link: #58a6ff;
+    --color-link-visited: #a371f7;
+    --color-code-bg: #161b22;
+    --color-code-text: #e6edf3;
+    --color-code-border: #30363d;
+    --color-border: #30363d;
+    --color-blockquote-border: #58a6ff;
+    --color-blockquote-bg: #161b22;
+    --color-table-header-bg: #161b22;
+    --color-table-alt-row: #0d1117;
+    --color-hr: #30363d;
+    --color-h1-accent: #58a6ff;
+    --color-h3-marker: #58a6ff;
+    background: var(--color-bg) !important;
+  }
+  
+  .inverted p,
+  .inverted td,
+  .inverted li,
+  .inverted h1,
+  .inverted h2,
+  .inverted h3,
+  .inverted h4,
+  .inverted h5,
+  .inverted h6,
+  .inverted pre,
+  .inverted code,
+  .inverted th,
+  .inverted blockquote {
+    color: var(--color-text) !important;
+  }
+  
+  .inverted a {
+    color: var(--color-link) !important;
+  }
+  
+  .inverted pre,
+  .inverted code {
+    background: var(--color-code-bg) !important;
+  }
+}
+
+/* ============================================================================
+   BASE STYLES
+   ============================================================================ */
+
+html {
+  font-size: var(--font-size-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+#wrapper {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--content-padding);
+  background: transparent;
+}
+
+/* ============================================================================
+   HEADINGS
+   ============================================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+  color: var(--color-heading);
+  margin-top: var(--spacing-heading-top);
+  margin-bottom: var(--spacing-heading-bottom);
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: 800;
+  margin-top: 0;
+  padding-bottom: 0.4em;
+  border-bottom: 3px solid var(--color-h1-accent);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: 700;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+h3::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 0.9em;
+  background: var(--color-h3-marker);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+  font-weight: 600;
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+h6 {
+  font-size: var(--font-size-h6);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+/* First heading after document start */
+#wrapper > h1:first-child {
+  margin-top: 0;
+}
+
+/* ============================================================================
+   PARAGRAPHS & TEXT
+   ============================================================================ */
+
+p {
+  margin: 0 0 var(--spacing-paragraph) 0;
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+/* ============================================================================
+   LINKS
+   ============================================================================ */
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+  border-bottom-color: var(--color-accent-hover);
+}
+
+a:visited {
+  color: var(--color-link-visited);
+}
+
+/* ============================================================================
+   CODE
+   ============================================================================ */
+
+code {
+  font-family: var(--font-code);
+  font-size: 0.875em;
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: 0.2em 0.45em;
+  border-radius: var(--radius-small);
+  font-variant-ligatures: common-ligatures;
+  border: 1px solid var(--color-code-border);
+}
+
+pre {
+  font-family: var(--font-code);
+  font-size: var(--font-size-code);
+  line-height: var(--line-height-code);
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: 1.25em 1.5em;
+  border-radius: var(--radius-medium);
+  overflow-x: auto;
+  margin: var(--spacing-paragraph) 0;
+  border: 1px solid var(--color-code-border);
+  box-shadow: 0 2px 6px var(--color-shadow);
+}
+
+pre code {
+  font-size: inherit;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  color: inherit;
+}
+
+/* ============================================================================
+   BLOCKQUOTES
+   ============================================================================ */
+
+blockquote {
+  margin: var(--spacing-paragraph) 0;
+  padding: 1em 1.5em;
+  border-left: 4px solid var(--color-blockquote-border);
+  background-color: var(--color-blockquote-bg);
+  border-radius: 0 var(--radius-small) var(--radius-small) 0;
+}
+
+blockquote p {
+  margin-bottom: 0.5em;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 0.75em;
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+blockquote cite::before {
+  content: "— ";
+}
+
+/* ============================================================================
+   LISTS
+   ============================================================================ */
+
+ul, ol {
+  margin: 0 0 var(--spacing-paragraph) 0;
+  padding-left: 1.75em;
+}
+
+li {
+  margin-bottom: var(--spacing-list-item);
+  line-height: var(--line-height-body);
+}
+
+li > ul,
+li > ol {
+  margin-top: var(--spacing-list-item);
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ul ul {
+  list-style-type: circle;
+}
+
+ul ul ul {
+  list-style-type: square;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+/* Task lists (if supported) */
+ul li input[type="checkbox"] {
+  margin-right: 0.5em;
+}
+
+/* Definition Lists */
+dl {
+  margin: 0 0 var(--spacing-paragraph) 0;
+}
+
+dt {
+  font-weight: 600;
+  margin-top: 1em;
+  color: var(--color-heading);
+}
+
+dd {
+  margin-left: 1.75em;
+  margin-bottom: 0.5em;
+  color: var(--color-text-muted);
+}
+
+/* ============================================================================
+   TABLES
+   ============================================================================ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-paragraph) 0;
+  font-size: 0.95em;
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+  box-shadow: 0 1px 3px var(--color-shadow);
+}
+
+th, td {
+  padding: 0.75em 1em;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-weight: 600;
+  background-color: var(--color-table-header-bg);
+  color: var(--color-heading);
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 0.05em;
+}
+
+tr:nth-child(even) {
+  background-color: var(--color-table-alt-row);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* ============================================================================
+   HORIZONTAL RULES
+   ============================================================================ */
+
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  margin: 3em 0;
+  position: relative;
+}
+
+/* Geometric center marker for presentation slide breaks */
+hr::after {
+  content: "◆";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-bg);
+  padding: 0 1em;
+  color: var(--color-accent);
+  font-size: 0.8em;
+}
+
+/* ============================================================================
+   IMAGES
+   ============================================================================ */
+
+#wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-medium);
+  box-shadow: 0 4px 12px var(--color-shadow);
+  margin: var(--spacing-paragraph) 0;
+  border: 1px solid var(--color-border);
+}
+
+figure {
+  margin: var(--spacing-paragraph) 0;
+}
+
+figcaption {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 0.75em;
+}
+
+/* ============================================================================
+   FOOTNOTES
+   ============================================================================ */
+
+sup, sub, a.footnote {
+  font-size: 1.4ex;
+  height: 0;
+  line-height: 1;
+  vertical-align: super;
+  position: relative;
+}
+
+a.footnote {
+  color: var(--color-accent);
+  text-decoration: none;
+  padding: 0 0.15em;
+  font-weight: 600;
+}
+
+div.footnotes {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 2px solid var(--color-border);
+  font-size: var(--font-size-small);
+}
+
+.footnotes p {
+  display: inline;
+}
+
+/* ============================================================================
+   POETRY MODE (Marked 2 specific)
+   ============================================================================ */
+
+.poetry pre code {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 110% !important;
+  line-height: 1.6em;
+  display: block;
+  margin-left: 1em;
+}
+
+/* ============================================================================
+   PRINT STYLES
+   ============================================================================ */
+
+@media print {
+  :root {
+    --color-bg: #ffffff;
+    --color-text: #000000;
+    --color-heading: #000000;
+    --color-code-bg: #f5f5f5;
+    --font-size-base: 11pt;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  #wrapper {
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  h3::before {
+    background: #000;
+  }
+  
+  pre, blockquote, table, figure {
+    page-break-inside: avoid;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+    border-bottom: none;
+  }
+  
+  hr::after {
+    display: none;
+  }
+  
+  #wrapper img {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  table {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================================================ */
+
+@media screen and (max-width: 768px) {
+  :root {
+    --font-size-base: 17px;
+    --font-size-h1: 2.25em;
+    --font-size-h2: 1.75em;
+    --content-padding: 1.5em;
+  }
+  
+  h3::before {
+    width: 3px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --font-size-base: 16px;
+    --font-size-h1: 2em;
+    --font-size-h2: 1.5em;
+    --content-padding: 1em;
+  }
+}
