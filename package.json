@@ -10,9 +10,9 @@
     "theme": "dark"
   },
   "badges": [],
-  "homepage": "https://github.com/vikgamov/vscode-open-in-marked2#readme",
+  "homepage": "https://github.com/gAmUssA/vscode-open-in-marked2#readme",
   "bugs": {
-    "url": "https://github.com/vikgamov/vscode-open-in-marked2/issues"
+    "url": "https://github.com/gAmUssA/vscode-open-in-marked2/issues"
   },
   "engines": {
     "vscode": "^1.85.0"
@@ -142,7 +142,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vikgamov/vscode-open-in-marked2"
+    "url": "https://github.com/gAmUssA/vscode-open-in-marked2"
   },
   "license": "MIT"
 }
