@@ -79,7 +79,7 @@ npm run package
 
 1. Open VS Code
 2. Go to Extensions (`Cmd+Shift+X`)
-3. Search for "Open in Marked 2"
+3. Search for "Better Open in Marked 2"
 4. Click Install
 
 ### From VSIX

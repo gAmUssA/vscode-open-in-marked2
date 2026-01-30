@@ -2,6 +2,13 @@
 
 All notable changes to the "Open in Marked 2" extension will be documented in this file.
 
+## [1.0.1] - 2026-01-30
+
+### Changed
+
+- Renamed extension to "Better Open in Marked2"
+- Updated GitHub repository URLs
+
 ## [1.0.0] - 2026-01-30
 
 ### Added
