@@ -2,6 +2,17 @@
 
 All notable changes to the "Open in Marked 2" extension will be documented in this file.
 
+## [0.0.3] - 2026-01-30
+
+### Added
+
+- Keyboard shortcut `Cmd+Shift+M` for quick access
+- Context menu entries in editor and file explorer
+- "Open Folder in Marked 2" command for opening folders
+- Right-click on folders in explorer to open in Marked 2
+- Auto-save file before opening in Marked 2 (configurable via `openInMarked2.autoSave`)
+- Status bar indicator for Markdown/AsciiDoc files
+
 ## [0.0.2] - 2026-01-30
 
 ### Added

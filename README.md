@@ -5,8 +5,11 @@ A VS Code extension that opens Markdown and AsciiDoc files in [Marked 2](https:/
 ## Features
 
 - **Editor title button** - One-click access when viewing supported files
-- Open the current Markdown or AsciiDoc file in Marked 2 with a single command
-- Configurable path to Marked 2 application
+- **Keyboard shortcut** - Press `Cmd+Shift+M` to open in Marked 2
+- **Context menus** - Right-click in editor or file explorer
+- **Open folders** - Open entire folders in Marked 2 for navigation
+- **Status bar indicator** - Shows when editing supported files
+- **Auto-save** - Automatically saves file before opening (configurable)
 - Supports Markdown: `.md`, `.markdown`, `.mdown`, `.mkd`
 - Supports AsciiDoc: `.adoc`, `.asciidoc` (requires Marked 2 custom processor)
 
@@ -18,14 +21,20 @@ A VS Code extension that opens Markdown and AsciiDoc files in [Marked 2](https:/
 ## Usage
 
 1. Open a Markdown or AsciiDoc file in VS Code
-2. Click the **eye icon** in the editor title bar, or
-3. Run the command **"Open in Marked 2"** from the Command Palette (`Cmd+Shift+P`)
+2. Use any of these methods:
+   - Click the **eye icon** in the editor title bar
+   - Press `Cmd+Shift+M`
+   - Right-click in the editor and select "Open in Marked 2"
+   - Right-click a file in the explorer and select "Open in Marked 2"
+   - Click "Marked 2" in the status bar
+3. To open a folder: Right-click on any folder in the explorer and select "Open Folder in Marked 2"
 
 ## Configuration
 
 | Setting | Description | Default |
 |---------|-------------|---------|
 | `openInMarked2.appPath` | Path to the Marked 2 application | `/Applications/Marked 2.app` |
+| `openInMarked2.autoSave` | Automatically save file before opening | `true` |
 
 ### Example
 
