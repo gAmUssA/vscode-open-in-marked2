@@ -1,0 +1,65 @@
+{
+  "name": "vscode-open-in-marked2",
+  "displayName": "Open in Marked 2",
+  "description": "Open Markdown files in Marked 2 for preview",
+  "version": "0.0.1",
+  "publisher": "vikgamov",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "markdown",
+    "marked",
+    "marked2",
+    "preview",
+    "macos"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "openInMarked2.open",
+        "title": "Open in Marked 2"
+      }
+    ],
+    "configuration": {
+      "title": "Open in Marked 2",
+      "properties": {
+        "openInMarked2.appPath": {
+          "type": "string",
+          "default": "/Applications/Marked 2.app",
+          "description": "Path to the Marked 2 application"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "build": "node esbuild.js",
+    "build:watch": "node esbuild.js --watch",
+    "package": "node esbuild.js --production",
+    "vscode:prepublish": "npm run package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "esbuild": "^0.19.8",
+    "eslint": "^8.55.0",
+    "typescript": "^5.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vikgamov/vscode-open-in-marked2"
+  },
+  "license": "MIT"
+}
