@@ -99,13 +99,35 @@ async function openFolderInMarked2(): Promise<void> {
   });
 }
 
+let statusBarItem: vscode.StatusBarItem;
+
+function updateStatusBarVisibility(): void {
+  const editor = vscode.window.activeTextEditor;
+  if (editor && isSupportedFile(editor.document.uri.fsPath)) {
+    statusBarItem.show();
+  } else {
+    statusBarItem.hide();
+  }
+}
+
 export function activate(context: vscode.ExtensionContext): void {
+  statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
+  statusBarItem.text = '$(eye) Marked 2';
+  statusBarItem.tooltip = 'Open in Marked 2';
+  statusBarItem.command = 'openInMarked2.open';
+
   context.subscriptions.push(
     vscode.commands.registerCommand('openInMarked2.open', openInMarked2),
-    vscode.commands.registerCommand('openInMarked2.openFolder', openFolderInMarked2)
+    vscode.commands.registerCommand('openInMarked2.openFolder', openFolderInMarked2),
+    statusBarItem,
+    vscode.window.onDidChangeActiveTextEditor(updateStatusBarVisibility)
   );
+
+  updateStatusBarVisibility();
 }
 
 export function deactivate(): void {
-  // Nothing to clean up
+  if (statusBarItem) {
+    statusBarItem.dispose();
+  }
 }
