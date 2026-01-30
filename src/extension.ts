@@ -105,7 +105,16 @@ async function openFolderInMarked2(uri?: vscode.Uri): Promise<void> {
 
 let statusBarItem: vscode.StatusBarItem;
 
+function shouldShowStatusBar(): boolean {
+  const config = vscode.workspace.getConfiguration('openInMarked2');
+  return config.get<boolean>('showStatusBar', true);
+}
+
 function updateStatusBarVisibility(): void {
+  if (!shouldShowStatusBar()) {
+    statusBarItem.hide();
+    return;
+  }
   const editor = vscode.window.activeTextEditor;
   if (editor && isSupportedFile(editor.document.uri.fsPath)) {
     statusBarItem.show();
@@ -124,7 +133,12 @@ export function activate(context: vscode.ExtensionContext): void {
     vscode.commands.registerCommand('openInMarked2.open', openInMarked2),
     vscode.commands.registerCommand('openInMarked2.openFolder', openFolderInMarked2),
     statusBarItem,
-    vscode.window.onDidChangeActiveTextEditor(updateStatusBarVisibility)
+    vscode.window.onDidChangeActiveTextEditor(updateStatusBarVisibility),
+    vscode.workspace.onDidChangeConfiguration((e) => {
+      if (e.affectsConfiguration('openInMarked2.showStatusBar')) {
+        updateStatusBarVisibility();
+      }
+    })
   );
 
   updateStatusBarVisibility();

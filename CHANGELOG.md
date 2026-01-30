@@ -12,6 +12,11 @@ All notable changes to the "Open in Marked 2" extension will be documented in th
 - Right-click on folders in explorer to open in Marked 2
 - Auto-save file before opening in Marked 2 (configurable via `openInMarked2.autoSave`)
 - Status bar indicator for Markdown/AsciiDoc files
+- Configuration options to show/hide UI elements:
+  - `showEditorTitleButton` - Toggle editor title bar button
+  - `showStatusBar` - Toggle status bar indicator
+  - `showContextMenu` - Toggle context menu entries
+  - `showFolderContextMenu` - Toggle folder context menu entry
 
 ## [0.0.2] - 2026-01-30
 

@@ -35,6 +35,10 @@ A VS Code extension that opens Markdown and AsciiDoc files in [Marked 2](https:/
 |---------|-------------|---------|
 | `openInMarked2.appPath` | Path to the Marked 2 application | `/Applications/Marked 2.app` |
 | `openInMarked2.autoSave` | Automatically save file before opening | `true` |
+| `openInMarked2.showEditorTitleButton` | Show button in editor title bar | `true` |
+| `openInMarked2.showStatusBar` | Show status bar indicator | `true` |
+| `openInMarked2.showContextMenu` | Show in editor/file context menus | `true` |
+| `openInMarked2.showFolderContextMenu` | Show "Open Folder" in folder context menu | `true` |
 
 ### Example
 

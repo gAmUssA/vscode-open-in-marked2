@@ -39,26 +39,26 @@
       "editor/title": [
         {
           "command": "openInMarked2.open",
-          "when": "resourceLangId == markdown || resourceLangId == asciidoc",
+          "when": "(resourceLangId == markdown || resourceLangId == asciidoc) && config.openInMarked2.showEditorTitleButton",
           "group": "navigation"
         }
       ],
       "editor/context": [
         {
           "command": "openInMarked2.open",
-          "when": "resourceLangId == markdown || resourceLangId == asciidoc",
+          "when": "(resourceLangId == markdown || resourceLangId == asciidoc) && config.openInMarked2.showContextMenu",
           "group": "navigation"
         }
       ],
       "explorer/context": [
         {
           "command": "openInMarked2.open",
-          "when": "resourceLangId == markdown || resourceLangId == asciidoc",
+          "when": "(resourceLangId == markdown || resourceLangId == asciidoc) && config.openInMarked2.showContextMenu",
           "group": "navigation"
         },
         {
           "command": "openInMarked2.openFolder",
-          "when": "explorerResourceIsFolder",
+          "when": "explorerResourceIsFolder && config.openInMarked2.showFolderContextMenu",
           "group": "navigation"
         }
       ]
@@ -82,6 +82,26 @@
           "type": "boolean",
           "default": true,
           "description": "Automatically save the file before opening in Marked 2"
+        },
+        "openInMarked2.showEditorTitleButton": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Open in Marked 2 button in the editor title bar"
+        },
+        "openInMarked2.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Marked 2 status bar indicator"
+        },
+        "openInMarked2.showContextMenu": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show Open in Marked 2 in context menus"
+        },
+        "openInMarked2.showFolderContextMenu": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show Open Folder in Marked 2 in folder context menu"
         }
       }
     }
