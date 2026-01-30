@@ -37,6 +37,20 @@
           "when": "resourceLangId == markdown || resourceLangId == asciidoc",
           "group": "navigation"
         }
+      ],
+      "editor/context": [
+        {
+          "command": "openInMarked2.open",
+          "when": "resourceLangId == markdown || resourceLangId == asciidoc",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "openInMarked2.open",
+          "when": "resourceLangId == markdown || resourceLangId == asciidoc",
+          "group": "navigation"
+        }
       ]
     },
     "keybindings": [

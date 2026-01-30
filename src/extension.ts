@@ -14,15 +14,19 @@ function getMarkedAppPath(): string {
   return config.get<string>('appPath', '/Applications/Marked 2.app');
 }
 
-async function openInMarked2(): Promise<void> {
-  const editor = vscode.window.activeTextEditor;
+async function openInMarked2(uri?: vscode.Uri): Promise<void> {
+  let filePath: string;
 
-  if (!editor) {
-    vscode.window.showErrorMessage('No active file to open');
-    return;
+  if (uri) {
+    filePath = uri.fsPath;
+  } else {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+      vscode.window.showErrorMessage('No active file to open');
+      return;
+    }
+    filePath = editor.document.uri.fsPath;
   }
-
-  const filePath = editor.document.uri.fsPath;
 
   if (!isSupportedFile(filePath)) {
     vscode.window.showErrorMessage('Current file is not a supported file type');
