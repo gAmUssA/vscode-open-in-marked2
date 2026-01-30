@@ -95,18 +95,28 @@ code --install-extension vscode-open-in-marked2-1.0.0.vsix
 1. Go to **Actions** → **Publish Extension**
 2. Click **Run workflow**
 3. Select version bump type (patch, minor, major)
-4. Click **Run workflow**
+4. Select where to publish (both, vscode, openvsx)
+5. Click **Run workflow**
 
 The workflow will:
 - Bump the version in package.json
-- Build and publish to VS Code Marketplace
+- Build and publish to VS Code Marketplace and/or Open VSX Registry
 - Create a GitHub release with the VSIX file
 
-### Required Secret
+### Required Secrets
 
-Add `VSCE_PAT` secret to your repository:
-1. Go to **Settings** → **Secrets and variables** → **Actions**
-2. Add a new secret named `VSCE_PAT` with your [Personal Access Token](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#get-a-personal-access-token)
+Add these secrets to your repository (**Settings** → **Secrets and variables** → **Actions**):
+
+| Secret | Description |
+|--------|-------------|
+| `VSCE_PAT` | [VS Code Marketplace Personal Access Token](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#get-a-personal-access-token) |
+| `OVSX_PAT` | [Open VSX Access Token](https://open-vsx.org/user-settings/tokens) (login with GitHub first)
+
+### OpenVSX Namespace
+
+To get verified status on Open VSX:
+1. Login to [open-vsx.org](https://open-vsx.org) with GitHub
+2. Claim your namespace by [creating an issue](https://github.com/EclipseFdn/open-vsx.org/issues/new/choose)
 
 ## License
 
