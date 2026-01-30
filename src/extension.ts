@@ -14,8 +14,14 @@ function getMarkedAppPath(): string {
   return config.get<string>('appPath', '/Applications/Marked 2.app');
 }
 
+function shouldAutoSave(): boolean {
+  const config = vscode.workspace.getConfiguration('openInMarked2');
+  return config.get<boolean>('autoSave', true);
+}
+
 async function openInMarked2(uri?: vscode.Uri): Promise<void> {
   let filePath: string;
+  let document: vscode.TextDocument | undefined;
 
   if (uri) {
     filePath = uri.fsPath;
@@ -26,6 +32,11 @@ async function openInMarked2(uri?: vscode.Uri): Promise<void> {
       return;
     }
     filePath = editor.document.uri.fsPath;
+    document = editor.document;
+  }
+
+  if (document && document.isDirty && shouldAutoSave()) {
+    await document.save();
   }
 
   if (!isSupportedFile(filePath)) {

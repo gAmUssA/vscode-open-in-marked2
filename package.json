@@ -72,6 +72,11 @@
           "type": "string",
           "default": "/Applications/Marked 2.app",
           "description": "Path to the Marked 2 application"
+        },
+        "openInMarked2.autoSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically save the file before opening in Marked 2"
         }
       }
     }
