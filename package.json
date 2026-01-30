@@ -55,6 +55,11 @@
           "command": "openInMarked2.open",
           "when": "resourceLangId == markdown || resourceLangId == asciidoc",
           "group": "navigation"
+        },
+        {
+          "command": "openInMarked2.openFolder",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation"
         }
       ]
     },

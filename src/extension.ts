@@ -67,15 +67,19 @@ async function openInMarked2(uri?: vscode.Uri): Promise<void> {
   });
 }
 
-async function openFolderInMarked2(): Promise<void> {
-  const workspaceFolders = vscode.workspace.workspaceFolders;
+async function openFolderInMarked2(uri?: vscode.Uri): Promise<void> {
+  let folderPath: string;
 
-  if (!workspaceFolders || workspaceFolders.length === 0) {
-    vscode.window.showErrorMessage('No workspace folder open');
-    return;
+  if (uri) {
+    folderPath = uri.fsPath;
+  } else {
+    const workspaceFolders = vscode.workspace.workspaceFolders;
+    if (!workspaceFolders || workspaceFolders.length === 0) {
+      vscode.window.showErrorMessage('No workspace folder open');
+      return;
+    }
+    folderPath = workspaceFolders[0].uri.fsPath;
   }
-
-  const folderPath = workspaceFolders[0].uri.fsPath;
   const appPath = getMarkedAppPath();
 
   if (!existsSync(appPath)) {
