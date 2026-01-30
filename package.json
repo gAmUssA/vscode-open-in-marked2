@@ -39,6 +39,13 @@
         }
       ]
     },
+    "keybindings": [
+      {
+        "command": "openInMarked2.open",
+        "key": "cmd+shift+m",
+        "when": "resourceLangId == markdown || resourceLangId == asciidoc"
+      }
+    ],
     "configuration": {
       "title": "Open in Marked 2",
       "properties": {
