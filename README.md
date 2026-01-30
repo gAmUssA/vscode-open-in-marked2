@@ -1,6 +1,12 @@
 # Open in Marked 2
 
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/vikgamov.vscode-open-in-marked2)](https://marketplace.visualstudio.com/items?itemName=vikgamov.vscode-open-in-marked2)
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/vikgamov.vscode-open-in-marked2)](https://marketplace.visualstudio.com/items?itemName=vikgamov.vscode-open-in-marked2)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A VS Code extension that opens Markdown and AsciiDoc files in [Marked 2](https://marked2app.com/) for preview.
+
+![Open in Marked 2](images/icon.png)
 
 ## Features
 
@@ -66,6 +72,21 @@ npm run build:watch
 npm run package
 ```
 
+## Installation
+
+### From VS Code Marketplace
+
+1. Open VS Code
+2. Go to Extensions (`Cmd+Shift+X`)
+3. Search for "Open in Marked 2"
+4. Click Install
+
+### From VSIX
+
+```bash
+code --install-extension vscode-open-in-marked2-1.0.0.vsix
+```
+
 ## License
 
-MIT
+MIT - see [LICENSE](LICENSE) for details

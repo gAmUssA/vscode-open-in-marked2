@@ -2,20 +2,34 @@
   "name": "vscode-open-in-marked2",
   "displayName": "Open in Marked 2",
   "description": "Open Markdown files in Marked 2 for preview",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "vikgamov",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "badges": [],
+  "homepage": "https://github.com/vikgamov/vscode-open-in-marked2#readme",
+  "bugs": {
+    "url": "https://github.com/vikgamov/vscode-open-in-marked2/issues"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Formatters"
   ],
+  "extensionKind": ["ui"],
   "keywords": [
     "markdown",
     "marked",
     "marked2",
     "preview",
-    "macos"
+    "macos",
+    "asciidoc",
+    "documentation"
   ],
   "activationEvents": [
     "onLanguage:markdown",
@@ -113,7 +127,9 @@
     "build": "node esbuild.js",
     "build:watch": "node esbuild.js --watch",
     "package": "node esbuild.js --production",
-    "vscode:prepublish": "npm run package"
+    "vscode:prepublish": "npm run package",
+    "vsce:package": "vsce package",
+    "vsce:publish": "vsce publish"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

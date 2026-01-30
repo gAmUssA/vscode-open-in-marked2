@@ -2,6 +2,16 @@
 
 All notable changes to the "Open in Marked 2" extension will be documented in this file.
 
+## [1.0.0] - 2026-01-30
+
+### Added
+
+- Prepared for VS Code Marketplace publishing
+- Added extension icon
+- Added LICENSE file
+- Added marketplace badges to README
+- Added installation instructions
+
 ## [0.0.3] - 2026-01-30
 
 ### Added
