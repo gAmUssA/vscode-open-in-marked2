@@ -87,6 +87,26 @@ npm run package
 code --install-extension vscode-open-in-marked2-1.0.0.vsix
 ```
 
+## Publishing
+
+### Manual Publishing via GitHub Actions
+
+1. Go to **Actions** → **Publish Extension**
+2. Click **Run workflow**
+3. Select version bump type (patch, minor, major)
+4. Click **Run workflow**
+
+The workflow will:
+- Bump the version in package.json
+- Build and publish to VS Code Marketplace
+- Create a GitHub release with the VSIX file
+
+### Required Secret
+
+Add `VSCE_PAT` secret to your repository:
+1. Go to **Settings** → **Secrets and variables** → **Actions**
+2. Add a new secret named `VSCE_PAT` with your [Personal Access Token](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#get-a-personal-access-token)
+
 ## License
 
 MIT - see [LICENSE](LICENSE) for details
