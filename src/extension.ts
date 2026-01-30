@@ -2,11 +2,11 @@ import * as vscode from 'vscode';
 import { exec } from 'child_process';
 import { existsSync } from 'fs';
 
-const MARKDOWN_EXTENSIONS = ['.md', '.markdown', '.mdown', '.mkd'];
+const SUPPORTED_EXTENSIONS = ['.md', '.markdown', '.mdown', '.mkd', '.adoc', '.asciidoc'];
 
-function isMarkdownFile(filePath: string): boolean {
+function isSupportedFile(filePath: string): boolean {
   const ext = filePath.toLowerCase().substring(filePath.lastIndexOf('.'));
-  return MARKDOWN_EXTENSIONS.includes(ext);
+  return SUPPORTED_EXTENSIONS.includes(ext);
 }
 
 function getMarkedAppPath(): string {
@@ -24,8 +24,8 @@ async function openInMarked2(): Promise<void> {
 
   const filePath = editor.document.uri.fsPath;
 
-  if (!isMarkdownFile(filePath)) {
-    vscode.window.showErrorMessage('Current file is not a Markdown file');
+  if (!isSupportedFile(filePath)) {
+    vscode.window.showErrorMessage('Current file is not a supported file type');
     return;
   }
 

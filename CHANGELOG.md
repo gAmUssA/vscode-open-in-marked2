@@ -2,6 +2,17 @@
 
 All notable changes to the "Open in Marked 2" extension will be documented in this file.
 
+## [0.0.2] - 2026-01-30
+
+### Added
+
+- Editor title bar button for one-click access to Open in Marked 2
+- AsciiDoc file support (`.adoc`, `.asciidoc`) for use with Marked 2 custom processors
+
+### Changed
+
+- Updated error message for unsupported file types
+
 ## [0.0.1] - 2026-01-29
 
 ### Added

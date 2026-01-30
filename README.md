@@ -1,12 +1,14 @@
 # Open in Marked 2
 
-A VS Code extension that opens Markdown files in [Marked 2](https://marked2app.com/) for preview.
+A VS Code extension that opens Markdown and AsciiDoc files in [Marked 2](https://marked2app.com/) for preview.
 
 ## Features
 
-- Open the current Markdown file in Marked 2 with a single command
+- **Editor title button** - One-click access when viewing supported files
+- Open the current Markdown or AsciiDoc file in Marked 2 with a single command
 - Configurable path to Marked 2 application
-- Supports `.md`, `.markdown`, `.mdown`, and `.mkd` file extensions
+- Supports Markdown: `.md`, `.markdown`, `.mdown`, `.mkd`
+- Supports AsciiDoc: `.adoc`, `.asciidoc` (requires Marked 2 custom processor)
 
 ## Requirements
 
@@ -15,8 +17,9 @@ A VS Code extension that opens Markdown files in [Marked 2](https://marked2app.c
 
 ## Usage
 
-1. Open a Markdown file in VS Code
-2. Run the command **"Open in Marked 2"** from the Command Palette (`Cmd+Shift+P`)
+1. Open a Markdown or AsciiDoc file in VS Code
+2. Click the **eye icon** in the editor title bar, or
+3. Run the command **"Open in Marked 2"** from the Command Palette (`Cmd+Shift+P`)
 
 ## Configuration
 

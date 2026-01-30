@@ -18,16 +18,27 @@
     "macos"
   ],
   "activationEvents": [
-    "onLanguage:markdown"
+    "onLanguage:markdown",
+    "onLanguage:asciidoc"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "openInMarked2.open",
-        "title": "Open in Marked 2"
+        "title": "Open in Marked 2",
+        "icon": "$(eye)"
       }
     ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "openInMarked2.open",
+          "when": "resourceLangId == markdown || resourceLangId == asciidoc",
+          "group": "navigation"
+        }
+      ]
+    },
     "configuration": {
       "title": "Open in Marked 2",
       "properties": {
