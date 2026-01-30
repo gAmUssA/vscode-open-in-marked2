@@ -1,4 +1,4 @@
-# Open in Marked 2
+# Better Open in Marked2
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/vikgamov.vscode-open-in-marked2)](https://marketplace.visualstudio.com/items?itemName=vikgamov.vscode-open-in-marked2)
 [![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/vikgamov.vscode-open-in-marked2)](https://marketplace.visualstudio.com/items?itemName=vikgamov.vscode-open-in-marked2)
