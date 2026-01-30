@@ -2,6 +2,7 @@
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/vikgamov.vscode-open-in-marked2)](https://marketplace.visualstudio.com/items?itemName=vikgamov.vscode-open-in-marked2)
 [![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/vikgamov.vscode-open-in-marked2)](https://marketplace.visualstudio.com/items?itemName=vikgamov.vscode-open-in-marked2)
+[![Open VSX Version](https://img.shields.io/open-vsx/v/vikgamov/vscode-open-in-marked2)](https://open-vsx.org/extension/vikgamov/vscode-open-in-marked2)
 [![GitHub](https://img.shields.io/github/stars/gAmUssA/vscode-open-in-marked2?style=social)](https://github.com/gAmUssA/vscode-open-in-marked2)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
