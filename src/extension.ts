@@ -56,9 +56,43 @@ async function openInMarked2(uri?: vscode.Uri): Promise<void> {
   });
 }
 
+async function openFolderInMarked2(): Promise<void> {
+  const workspaceFolders = vscode.workspace.workspaceFolders;
+
+  if (!workspaceFolders || workspaceFolders.length === 0) {
+    vscode.window.showErrorMessage('No workspace folder open');
+    return;
+  }
+
+  const folderPath = workspaceFolders[0].uri.fsPath;
+  const appPath = getMarkedAppPath();
+
+  if (!existsSync(appPath)) {
+    vscode.window.showErrorMessage(
+      `Marked 2 not found at "${appPath}". Please install Marked 2 or configure the path in settings.`,
+      'Open Settings'
+    ).then((selection: string | undefined) => {
+      if (selection === 'Open Settings') {
+        vscode.commands.executeCommand('workbench.action.openSettings', 'openInMarked2.appPath');
+      }
+    });
+    return;
+  }
+
+  const command = `open -a "${appPath}" "${folderPath}"`;
+
+  exec(command, (error: Error | null) => {
+    if (error) {
+      vscode.window.showErrorMessage(`Failed to open folder in Marked 2: ${error.message}`);
+    }
+  });
+}
+
 export function activate(context: vscode.ExtensionContext): void {
-  const disposable = vscode.commands.registerCommand('openInMarked2.open', openInMarked2);
-  context.subscriptions.push(disposable);
+  context.subscriptions.push(
+    vscode.commands.registerCommand('openInMarked2.open', openInMarked2),
+    vscode.commands.registerCommand('openInMarked2.openFolder', openFolderInMarked2)
+  );
 }
 
 export function deactivate(): void {

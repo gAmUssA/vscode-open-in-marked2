@@ -28,6 +28,11 @@
         "command": "openInMarked2.open",
         "title": "Open in Marked 2",
         "icon": "$(eye)"
+      },
+      {
+        "command": "openInMarked2.openFolder",
+        "title": "Open Folder in Marked 2",
+        "icon": "$(folder)"
       }
     ],
     "menus": {
